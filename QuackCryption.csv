@@ -1,0 +1,131 @@
+#,Char,Description,Quacks
+0,\0,null,quackquack
+1,SOH,start of heading,Quackquack
+2,STX,start of text,qUackquack
+3,ETX,end of text,QUackquack
+4,EOT,end of transmission,quAckquack
+5,ENQ,enquiry,QuAckquack
+6,ACK,acknowledge,qUAckquack
+7,BEL,bull,QUAckquack
+8,BEL,backspace,quaCkquack
+9,TAB,horizontal tab,QuaCkquack
+10,LF,"NL line feed, new line",qUaCkquack
+11,VT,vertical tab,QUaCkquack
+12,FF,"NP form feed, new page",quACkquack
+13,CR,carriage return,QuACkquack
+14,SOH,shift out,qUACkquack
+15,SI,shift in,QUACkquack
+16,DLE,data link escape,quacKquack
+17,DC1,device control 1,QuacKquack
+18,DC2,device control 2,qUacKquack
+19,DC3,device control 3,QUacKquack
+20,DC4,device control 4,quAcKquack
+21,NAK,negative acknowledge,QuAcKquack
+22,SYN,synchronous idle,qUAcKquack
+23,ETB,end of trans. block,QUAcKquack
+24,CAN,cancel,quaCKquack
+25,EM,end of medium,QuaCKquack
+26,SUB,substitute,qUaCKquack
+27,ESC,escape,QUaCKquack
+28,FS,file separator,quACKquack
+29,GS,group separator,QuACKquack
+30,RS,record separator,qUACKquack
+31,US,unit seperator,QUACKquack
+32,Space,Space,quackQuack
+33,!,,QuackQuack
+34,"""",,qUackQuack
+35,#,,QUackQuack
+36,$,,quAckQuack
+37,%,,QuAckQuack
+38,&,,qUAckQuack
+39,',,QUAckQuack
+40,(,,quaCkQuack
+41,),,QuaCkQuack
+42,*,,qUaCkQuack
+43,+,,QUaCkQuack
+44,",",,quACkQuack
+45,-,,QuACkQuack
+46,.,,qUACkQuack
+47,/,,QUACkQuack
+48,0,,quacKQuack
+49,1,,QuacKQuack
+50,2,,qUacKQuack
+51,3,,QUacKQuack
+52,4,,quAcKQuack
+53,5,,QuAcKQuack
+54,6,,qUAcKQuack
+55,7,,QUAcKQuack
+56,8,,quaCKQuack
+57,9,,QuaCKQuack
+58,:,,qUaCKQuack
+59,;,,QUaCKQuack
+60,<,,quACKQuack
+61,=,,QuACKQuack
+62,>,,qUACKQuack
+63,?,,QUACKQuack
+64,@,,quackqUack
+65,A,,QuackqUack
+66,B,,qUackqUack
+67,C,,QUackqUack
+68,D,,quAckqUack
+69,E,,QuAckqUack
+70,F,,qUAckqUack
+71,G,,QUAckqUack
+72,H,,quaCkqUack
+73,I,,QuaCkqUack
+74,J,,qUaCkqUack
+75,K,,QUaCkqUack
+76,L,,quACkqUack
+77,M,,QuACkqUack
+78,N,,qUACkqUack
+79,O,,QUACkqUack
+80,P,,quacKqUack
+81,Q,,QuacKqUack
+82,R,,qUacKqUack
+83,S,,QUacKqUack
+84,T,,quAcKqUack
+85,U,,QuAcKqUack
+86,V,,qUAcKqUack
+87,W,,QUAcKqUack
+88,X,,quaCKqUack
+89,Y,,QuaCKqUack
+90,Z,,qUaCKqUack
+91,[,,QUaCKqUack
+92,\,,quACKqUack
+93,],,QuACKqUack
+94,^,,qUACKqUack
+95,_,,QUACKqUack
+96,`,,quackQUack
+97,a,,QuackQUack
+98,b,,qUackQUack
+99,c,,QUackQUack
+100,d,,quAckQUack
+101,e,,QuAckQUack
+102,f,,qUAckQUack
+103,g,,QUAckQUack
+104,h,,quaCkQUack
+105,i,,QuaCkQUack
+106,j,,qUaCkQUack
+107,k,,QUaCkQUack
+108,l,,quACkQUack
+109,m,,QuACkQUack
+110,n,,qUACkQUack
+111,o,,QUACkQUack
+112,p,,quacKQUack
+113,q,,QuacKQUack
+114,r,,qUacKQUack
+115,s,,QUacKQUack
+116,t,,quAcKQUack
+117,u,,QuAcKQUack
+118,v,,qUAcKQUack
+119,w,,QUAcKQUack
+120,x,,quaCKQUack
+121,y,,QuaCKQUack
+122,z,,qUaCKQUack
+123,{,,QUaCKQUack
+124,|,,quACKQUack
+125,},,QuACKQUack
+126,~,,qUACKQUack
+127,DEL,,QUACKQUack
+128,,Start File Header,quackquAck
+129,,End File Header,QuackquAck
