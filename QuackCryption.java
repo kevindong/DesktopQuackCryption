@@ -978,6 +978,6 @@ public class QuackCryption {
 	public static void main(String[] args) {
 		QuackCryption quack = new QuackCryption();
 		quack.fileThroughQuack("QuackQuackQuack!", "RandomInitVector", "test.png");
-		quack.fileThroughNormal("QuackQuackQuack!", "RandomInitVector", "encrypted.quack")
+		quack.fileThroughNormal("QuackQuackQuack!", "RandomInitVector", "encrypted.quack");
 	}
 }
