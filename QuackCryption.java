@@ -1,6 +1,6 @@
 /*
-	QuackCryption v1.1.0
-	June 4, 2016
+	QuackCryption v1.2.0
+	August 8, 2016
 	http://www.kevindong.net/QuackCryption
 	http://www.github.com/kevindong/QuackCryption
  */
@@ -53,7 +53,7 @@ public class QuackCryption {
 		}
 
 		int piece;
-		String body = "";
+		StringBuilder body = new StringBuilder();
 		try {
 			int length = fis.available();
 			for (int i = 0; i < length; i++) {
@@ -61,9 +61,9 @@ public class QuackCryption {
 				if (piece == -1) {
 					throw new Exception("Invalid byte read in body.");
 				}
-				body += piece + " ";
+				body.append(piece + " ");
 			}
-			fos.write(throughQuack(key, initVector, body).getBytes());
+			fos.write(throughQuack(key, initVector, body.toString()).getBytes());
 		} catch (IOException e) {
 			System.out.println("Writing body failed.");
 			return 0;
@@ -110,17 +110,16 @@ public class QuackCryption {
 		}
 		String outputFileName = throughNormal(key, initVector, header.substring(11, header.length() - 11));
 
-		String body = "";
+		StringBuilder body = new StringBuilder();
 		boolean bodyHasEnded = false;
 		while (!bodyHasEnded) {
 			try {
-				body += scanner.next() + " ";
+				body.append(scanner.next() + " ");
 			} catch (NoSuchElementException e) {
 				bodyHasEnded = true;
 			}
 		}
-		body = throughNormal(key, initVector, body);
-		String[] byteArray = body.split(" ");
+		String[] byteArray = throughNormal(key, initVector, body.toString()).split(" ");
 
 		File output = new File(outputFileName);
 		FileOutputStream fos = null;
@@ -186,792 +185,792 @@ public class QuackCryption {
 
 	// Begin Quack
 	public String toQuack(String normalText) {
-		String quacked = "";
+		StringBuilder quacked = new StringBuilder();
 		char[] inputArray = normalText.toCharArray();
 		for (int i = 0; i < inputArray.length; i++) {
 			switch (inputArray[i]) {
 				case 0:
-					quacked += "quackquack";
+					quacked.append("quackquack");
 					break;
 				case 1:
-					quacked += "Quackquack";
+					quacked.append("Quackquack");
 					break;
 				case 2:
-					quacked += "qUackquack";
+					quacked.append("qUackquack");
 					break;
 				case 3:
-					quacked += "QUackquack";
+					quacked.append("QUackquack");
 					break;
 				case 4:
-					quacked += "quAckquack";
+					quacked.append("quAckquack");
 					break;
 				case 5:
-					quacked += "QuAckquack";
+					quacked.append("QuAckquack");
 					break;
 				case 6:
-					quacked += "qUAckquack";
+					quacked.append("qUAckquack");
 					break;
 				case 7:
-					quacked += "QUAckquack";
+					quacked.append("QUAckquack");
 					break;
 				case 8:
-					quacked += "quaCkquack";
+					quacked.append("quaCkquack");
 					break;
 				case 9:
-					quacked += "QuaCkquack";
+					quacked.append("QuaCkquack");
 					break;
 				case 10:
-					quacked += "qUaCkquack";
+					quacked.append("qUaCkquack");
 					break;
 				case 11:
-					quacked += "QUaCkquack";
+					quacked.append("QUaCkquack");
 					break;
 				case 12:
-					quacked += "quACkquack";
+					quacked.append("quACkquack");
 					break;
 				case 13:
-					quacked += "QuACkquack";
+					quacked.append("QuACkquack");
 					break;
 				case 14:
-					quacked += "qUACkquack";
+					quacked.append("qUACkquack");
 					break;
 				case 15:
-					quacked += "QUACkquack";
+					quacked.append("QUACkquack");
 					break;
 				case 16:
-					quacked += "quacKquack";
+					quacked.append("quacKquack");
 					break;
 				case 17:
-					quacked += "QuacKquack";
+					quacked.append("QuacKquack");
 					break;
 				case 18:
-					quacked += "qUacKquack";
+					quacked.append("qUacKquack");
 					break;
 				case 19:
-					quacked += "QUacKquack";
+					quacked.append("QUacKquack");
 					break;
 				case 20:
-					quacked += "quAcKquack";
+					quacked.append("quAcKquack");
 					break;
 				case 21:
-					quacked += "QuAcKquack";
+					quacked.append("QuAcKquack");
 					break;
 				case 22:
-					quacked += "qUAcKquack";
+					quacked.append("qUAcKquack");
 					break;
 				case 23:
-					quacked += "QUAcKquack";
+					quacked.append("QUAcKquack");
 					break;
 				case 24:
-					quacked += "quaCKquack";
+					quacked.append("quaCKquack");
 					break;
 				case 25:
-					quacked += "QuaCKquack";
+					quacked.append("QuaCKquack");
 					break;
 				case 26:
-					quacked += "qUaCKquack";
+					quacked.append("qUaCKquack");
 					break;
 				case 27:
-					quacked += "QUaCKquack";
+					quacked.append("QUaCKquack");
 					break;
 				case 28:
-					quacked += "quACKquack";
+					quacked.append("quACKquack");
 					break;
 				case 29:
-					quacked += "QuACKquack";
+					quacked.append("QuACKquack");
 					break;
 				case 30:
-					quacked += "qUACKquack";
+					quacked.append("qUACKquack");
 					break;
 				case 31:
-					quacked += "QUACKquack";
+					quacked.append("QUACKquack");
 					break;
 				case 32:
-					quacked += "quackQuack";
+					quacked.append("quackQuack");
 					break;
 				case 33:
-					quacked += "QuackQuack";
+					quacked.append("QuackQuack");
 					break;
 				case 34:
-					quacked += "qUackQuack";
+					quacked.append("qUackQuack");
 					break;
 				case 35:
-					quacked += "QUackQuack";
+					quacked.append("QUackQuack");
 					break;
 				case 36:
-					quacked += "quAckQuack";
+					quacked.append("quAckQuack");
 					break;
 				case 37:
-					quacked += "QuAckQuack";
+					quacked.append("QuAckQuack");
 					break;
 				case 38:
-					quacked += "qUAckQuack";
+					quacked.append("qUAckQuack");
 					break;
 				case 39:
-					quacked += "QUAckQuack";
+					quacked.append("QUAckQuack");
 					break;
 				case 40:
-					quacked += "quaCkQuack";
+					quacked.append("quaCkQuack");
 					break;
 				case 41:
-					quacked += "QuaCkQuack";
+					quacked.append("QuaCkQuack");
 					break;
 				case 42:
-					quacked += "qUaCkQuack";
+					quacked.append("qUaCkQuack");
 					break;
 				case 43:
-					quacked += "QUaCkQuack";
+					quacked.append("QUaCkQuack");
 					break;
 				case 44:
-					quacked += "quACkQuack";
+					quacked.append("quACkQuack");
 					break;
 				case 45:
-					quacked += "QuACkQuack";
+					quacked.append("QuACkQuack");
 					break;
 				case 46:
-					quacked += "qUACkQuack";
+					quacked.append("qUACkQuack");
 					break;
 				case 47:
-					quacked += "QUACkQuack";
+					quacked.append("QUACkQuack");
 					break;
 				case 48:
-					quacked += "quacKQuack";
+					quacked.append("quacKQuack");
 					break;
 				case 49:
-					quacked += "QuacKQuack";
+					quacked.append("QuacKQuack");
 					break;
 				case 50:
-					quacked += "qUacKQuack";
+					quacked.append("qUacKQuack");
 					break;
 				case 51:
-					quacked += "QUacKQuack";
+					quacked.append("QUacKQuack");
 					break;
 				case 52:
-					quacked += "quAcKQuack";
+					quacked.append("quAcKQuack");
 					break;
 				case 53:
-					quacked += "QuAcKQuack";
+					quacked.append("QuAcKQuack");
 					break;
 				case 54:
-					quacked += "qUAcKQuack";
+					quacked.append("qUAcKQuack");
 					break;
 				case 55:
-					quacked += "QUAcKQuack";
+					quacked.append("QUAcKQuack");
 					break;
 				case 56:
-					quacked += "quaCKQuack";
+					quacked.append("quaCKQuack");
 					break;
 				case 57:
-					quacked += "QuaCKQuack";
+					quacked.append("QuaCKQuack");
 					break;
 				case 58:
-					quacked += "qUaCKQuack";
+					quacked.append("qUaCKQuack");
 					break;
 				case 59:
-					quacked += "QUaCKQuack";
+					quacked.append("QUaCKQuack");
 					break;
 				case 60:
-					quacked += "quACKQuack";
+					quacked.append("quACKQuack");
 					break;
 				case 61:
-					quacked += "QuACKQuack";
+					quacked.append("QuACKQuack");
 					break;
 				case 62:
-					quacked += "qUACKQuack";
+					quacked.append("qUACKQuack");
 					break;
 				case 63:
-					quacked += "QUACKQuack";
+					quacked.append("QUACKQuack");
 					break;
 				case 64:
-					quacked += "quackqUack";
+					quacked.append("quackqUack");
 					break;
 				case 65:
-					quacked += "QuackqUack";
+					quacked.append("QuackqUack");
 					break;
 				case 66:
-					quacked += "qUackqUack";
+					quacked.append("qUackqUack");
 					break;
 				case 67:
-					quacked += "QUackqUack";
+					quacked.append("QUackqUack");
 					break;
 				case 68:
-					quacked += "quAckqUack";
+					quacked.append("quAckqUack");
 					break;
 				case 69:
-					quacked += "QuAckqUack";
+					quacked.append("QuAckqUack");
 					break;
 				case 70:
-					quacked += "qUAckqUack";
+					quacked.append("qUAckqUack");
 					break;
 				case 71:
-					quacked += "QUAckqUack";
+					quacked.append("QUAckqUack");
 					break;
 				case 72:
-					quacked += "quaCkqUack";
+					quacked.append("quaCkqUack");
 					break;
 				case 73:
-					quacked += "QuaCkqUack";
+					quacked.append("QuaCkqUack");
 					break;
 				case 74:
-					quacked += "qUaCkqUack";
+					quacked.append("qUaCkqUack");
 					break;
 				case 75:
-					quacked += "QUaCkqUack";
+					quacked.append("QUaCkqUack");
 					break;
 				case 76:
-					quacked += "quACkqUack";
+					quacked.append("quACkqUack");
 					break;
 				case 77:
-					quacked += "QuACkqUack";
+					quacked.append("QuACkqUack");
 					break;
 				case 78:
-					quacked += "qUACkqUack";
+					quacked.append("qUACkqUack");
 					break;
 				case 79:
-					quacked += "QUACkqUack";
+					quacked.append("QUACkqUack");
 					break;
 				case 80:
-					quacked += "quacKqUack";
+					quacked.append("quacKqUack");
 					break;
 				case 81:
-					quacked += "QuacKqUack";
+					quacked.append("QuacKqUack");
 					break;
 				case 82:
-					quacked += "qUacKqUack";
+					quacked.append("qUacKqUack");
 					break;
 				case 83:
-					quacked += "QUacKqUack";
+					quacked.append("QUacKqUack");
 					break;
 				case 84:
-					quacked += "quAcKqUack";
+					quacked.append("quAcKqUack");
 					break;
 				case 85:
-					quacked += "QuAcKqUack";
+					quacked.append("QuAcKqUack");
 					break;
 				case 86:
-					quacked += "qUAcKqUack";
+					quacked.append("qUAcKqUack");
 					break;
 				case 87:
-					quacked += "QUAcKqUack";
+					quacked.append("QUAcKqUack");
 					break;
 				case 88:
-					quacked += "quaCKqUack";
+					quacked.append("quaCKqUack");
 					break;
 				case 89:
-					quacked += "QuaCKqUack";
+					quacked.append("QuaCKqUack");
 					break;
 				case 90:
-					quacked += "qUaCKqUack";
+					quacked.append("qUaCKqUack");
 					break;
 				case 91:
-					quacked += "QUaCKqUack";
+					quacked.append("QUaCKqUack");
 					break;
 				case 92:
-					quacked += "quACKqUack";
+					quacked.append("quACKqUack");
 					break;
 				case 93:
-					quacked += "QuACKqUack";
+					quacked.append("QuACKqUack");
 					break;
 				case 94:
-					quacked += "qUACKqUack";
+					quacked.append("qUACKqUack");
 					break;
 				case 95:
-					quacked += "QUACKqUack";
+					quacked.append("QUACKqUack");
 					break;
 				case 96:
-					quacked += "quackQUack";
+					quacked.append("quackQUack");
 					break;
 				case 97:
-					quacked += "QuackQUack";
+					quacked.append("QuackQUack");
 					break;
 				case 98:
-					quacked += "qUackQUack";
+					quacked.append("qUackQUack");
 					break;
 				case 99:
-					quacked += "QUackQUack";
+					quacked.append("QUackQUack");
 					break;
 				case 100:
-					quacked += "quAckQUack";
+					quacked.append("quAckQUack");
 					break;
 				case 101:
-					quacked += "QuAckQUack";
+					quacked.append("QuAckQUack");
 					break;
 				case 102:
-					quacked += "qUAckQUack";
+					quacked.append("qUAckQUack");
 					break;
 				case 103:
-					quacked += "QUAckQUack";
+					quacked.append("QUAckQUack");
 					break;
 				case 104:
-					quacked += "quaCkQUack";
+					quacked.append("quaCkQUack");
 					break;
 				case 105:
-					quacked += "QuaCkQUack";
+					quacked.append("QuaCkQUack");
 					break;
 				case 106:
-					quacked += "qUaCkQUack";
+					quacked.append("qUaCkQUack");
 					break;
 				case 107:
-					quacked += "QUaCkQUack";
+					quacked.append("QUaCkQUack");
 					break;
 				case 108:
-					quacked += "quACkQUack";
+					quacked.append("quACkQUack");
 					break;
 				case 109:
-					quacked += "QuACkQUack";
+					quacked.append("QuACkQUack");
 					break;
 				case 110:
-					quacked += "qUACkQUack";
+					quacked.append("qUACkQUack");
 					break;
 				case 111:
-					quacked += "QUACkQUack";
+					quacked.append("QUACkQUack");
 					break;
 				case 112:
-					quacked += "quacKQUack";
+					quacked.append("quacKQUack");
 					break;
 				case 113:
-					quacked += "QuacKQUack";
+					quacked.append("QuacKQUack");
 					break;
 				case 114:
-					quacked += "qUacKQUack";
+					quacked.append("qUacKQUack");
 					break;
 				case 115:
-					quacked += "QUacKQUack";
+					quacked.append("QUacKQUack");
 					break;
 				case 116:
-					quacked += "quAcKQUack";
+					quacked.append("quAcKQUack");
 					break;
 				case 117:
-					quacked += "QuAcKQUack";
+					quacked.append("QuAcKQUack");
 					break;
 				case 118:
-					quacked += "qUAcKQUack";
+					quacked.append("qUAcKQUack");
 					break;
 				case 119:
-					quacked += "QUAcKQUack";
+					quacked.append("QUAcKQUack");
 					break;
 				case 120:
-					quacked += "quaCKQUack";
+					quacked.append("quaCKQUack");
 					break;
 				case 121:
-					quacked += "QuaCKQUack";
+					quacked.append("QuaCKQUack");
 					break;
 				case 122:
-					quacked += "qUaCKQUack";
+					quacked.append("qUaCKQUack");
 					break;
 				case 123:
-					quacked += "QUaCKQUack";
+					quacked.append("QUaCKQUack");
 					break;
 				case 124:
-					quacked += "quACKQUack";
+					quacked.append("quACKQUack");
 					break;
 				case 125:
-					quacked += "QuACKQUack";
+					quacked.append("QuACKQUack");
 					break;
 				case 126:
-					quacked += "qUACKQUack";
+					quacked.append("qUACKQUack");
 					break;
 				case 127:
-					quacked += "QUACKQUack";
+					quacked.append("QUACKQUack");
 					break;
 			}
-			quacked += " ";
+			quacked.append(" ");
 		}
-		return quacked;
+		return quacked.toString();
 	}
 
 	public String fromQuack(String quackedText) {
-		String deQuacked = "";
+		StringBuilder deQuacked = new StringBuilder();
 		String[] translateArray = quackedText.split(" ");
 		for (int i = 0; i < translateArray.length; i++) {
 			switch (translateArray[i]) {
 				case "quackquack":
-					deQuacked += (char)0;
+					deQuacked.append((char)0);
 					break;
 				case "Quackquack":
-					deQuacked += (char)1;
+					deQuacked.append((char)1);
 					break;
 				case "qUackquack":
-					deQuacked += (char)2;
+					deQuacked.append((char)2);
 					break;
 				case "QUackquack":
-					deQuacked += (char)3;
+					deQuacked.append((char)3);
 					break;
 				case "quAckquack":
-					deQuacked += (char)4;
+					deQuacked.append((char)4);
 					break;
 				case "QuAckquack":
-					deQuacked += (char)5;
+					deQuacked.append((char)5);
 					break;
 				case "qUAckquack":
-					deQuacked += (char)6;
+					deQuacked.append((char)6);
 					break;
 				case "QUAckquack":
-					deQuacked += (char)7;
+					deQuacked.append((char)7);
 					break;
 				case "quaCkquack":
-					deQuacked += (char)8;
+					deQuacked.append((char)8);
 					break;
 				case "QuaCkquack":
-					deQuacked += (char)9;
+					deQuacked.append((char)9);
 					break;
 				case "qUaCkquack":
-					deQuacked += (char)10;
+					deQuacked.append((char)10);
 					break;
 				case "QUaCkquack":
-					deQuacked += (char)11;
+					deQuacked.append((char)11);
 					break;
 				case "quACkquack":
-					deQuacked += (char)12;
+					deQuacked.append((char)12);
 					break;
 				case "QuACkquack":
-					deQuacked += (char)13;
+					deQuacked.append((char)13);
 					break;
 				case "qUACkquack":
-					deQuacked += (char)14;
+					deQuacked.append((char)14);
 					break;
 				case "QUACkquack":
-					deQuacked += (char)15;
+					deQuacked.append((char)15);
 					break;
 				case "quacKquack":
-					deQuacked += (char)16;
+					deQuacked.append((char)16);
 					break;
 				case "QuacKquack":
-					deQuacked += (char)17;
+					deQuacked.append((char)17);
 					break;
 				case "qUacKquack":
-					deQuacked += (char)18;
+					deQuacked.append((char)18);
 					break;
 				case "QUacKquack":
-					deQuacked += (char)19;
+					deQuacked.append((char)19);
 					break;
 				case "quAcKquack":
-					deQuacked += (char)20;
+					deQuacked.append((char)20);
 					break;
 				case "QuAcKquack":
-					deQuacked += (char)21;
+					deQuacked.append((char)21);
 					break;
 				case "qUAcKquack":
-					deQuacked += (char)22;
+					deQuacked.append((char)22);
 					break;
 				case "QUAcKquack":
-					deQuacked += (char)23;
+					deQuacked.append((char)23);
 					break;
 				case "quaCKquack":
-					deQuacked += (char)24;
+					deQuacked.append((char)24);
 					break;
 				case "QuaCKquack":
-					deQuacked += (char)25;
+					deQuacked.append((char)25);
 					break;
 				case "qUaCKquack":
-					deQuacked += (char)26;
+					deQuacked.append((char)26);
 					break;
 				case "QUaCKquack":
-					deQuacked += (char)27;
+					deQuacked.append((char)27);
 					break;
 				case "quACKquack":
-					deQuacked += (char)28;
+					deQuacked.append((char)28);
 					break;
 				case "QuACKquack":
-					deQuacked += (char)29;
+					deQuacked.append((char)29);
 					break;
 				case "qUACKquack":
-					deQuacked += (char)30;
+					deQuacked.append((char)30);
 					break;
 				case "QUACKquack":
-					deQuacked += (char)31;
+					deQuacked.append((char)31);
 					break;
 				case "quackQuack":
-					deQuacked += (char)32;
+					deQuacked.append((char)32);
 					break;
 				case "QuackQuack":
-					deQuacked += (char)33;
+					deQuacked.append((char)33);
 					break;
 				case "qUackQuack":
-					deQuacked += (char)34;
+					deQuacked.append((char)34);
 					break;
 				case "QUackQuack":
-					deQuacked += (char)35;
+					deQuacked.append((char)35);
 					break;
 				case "quAckQuack":
-					deQuacked += (char)36;
+					deQuacked.append((char)36);
 					break;
 				case "QuAckQuack":
-					deQuacked += (char)37;
+					deQuacked.append((char)37);
 					break;
 				case "qUAckQuack":
-					deQuacked += (char)38;
+					deQuacked.append((char)38);
 					break;
 				case "QUAckQuack":
-					deQuacked += (char)39;
+					deQuacked.append((char)39);
 					break;
 				case "quaCkQuack":
-					deQuacked += (char)40;
+					deQuacked.append((char)40);
 					break;
 				case "QuaCkQuack":
-					deQuacked += (char)41;
+					deQuacked.append((char)41);
 					break;
 				case "qUaCkQuack":
-					deQuacked += (char)42;
+					deQuacked.append((char)42);
 					break;
 				case "QUaCkQuack":
-					deQuacked += (char)43;
+					deQuacked.append((char)43);
 					break;
 				case "quACkQuack":
-					deQuacked += (char)44;
+					deQuacked.append((char)44);
 					break;
 				case "QuACkQuack":
-					deQuacked += (char)45;
+					deQuacked.append((char)45);
 					break;
 				case "qUACkQuack":
-					deQuacked += (char)46;
+					deQuacked.append((char)46);
 					break;
 				case "QUACkQuack":
-					deQuacked += (char)47;
+					deQuacked.append((char)47);
 					break;
 				case "quacKQuack":
-					deQuacked += (char)48;
+					deQuacked.append((char)48);
 					break;
 				case "QuacKQuack":
-					deQuacked += (char)49;
+					deQuacked.append((char)49);
 					break;
 				case "qUacKQuack":
-					deQuacked += (char)50;
+					deQuacked.append((char)50);
 					break;
 				case "QUacKQuack":
-					deQuacked += (char)51;
+					deQuacked.append((char)51);
 					break;
 				case "quAcKQuack":
-					deQuacked += (char)52;
+					deQuacked.append((char)52);
 					break;
 				case "QuAcKQuack":
-					deQuacked += (char)53;
+					deQuacked.append((char)53);
 					break;
 				case "qUAcKQuack":
-					deQuacked += (char)54;
+					deQuacked.append((char)54);
 					break;
 				case "QUAcKQuack":
-					deQuacked += (char)55;
+					deQuacked.append((char)55);
 					break;
 				case "quaCKQuack":
-					deQuacked += (char)56;
+					deQuacked.append((char)56);
 					break;
 				case "QuaCKQuack":
-					deQuacked += (char)57;
+					deQuacked.append((char)57);
 					break;
 				case "qUaCKQuack":
-					deQuacked += (char)58;
+					deQuacked.append((char)58);
 					break;
 				case "QUaCKQuack":
-					deQuacked += (char)59;
+					deQuacked.append((char)59);
 					break;
 				case "quACKQuack":
-					deQuacked += (char)60;
+					deQuacked.append((char)60);
 					break;
 				case "QuACKQuack":
-					deQuacked += (char)61;
+					deQuacked.append((char)61);
 					break;
 				case "qUACKQuack":
-					deQuacked += (char)62;
+					deQuacked.append((char)62);
 					break;
 				case "QUACKQuack":
-					deQuacked += (char)63;
+					deQuacked.append((char)63);
 					break;
 				case "quackqUack":
-					deQuacked += (char)64;
+					deQuacked.append((char)64);
 					break;
 				case "QuackqUack":
-					deQuacked += (char)65;
+					deQuacked.append((char)65);
 					break;
 				case "qUackqUack":
-					deQuacked += (char)66;
+					deQuacked.append((char)66);
 					break;
 				case "QUackqUack":
-					deQuacked += (char)67;
+					deQuacked.append((char)67);
 					break;
 				case "quAckqUack":
-					deQuacked += (char)68;
+					deQuacked.append((char)68);
 					break;
 				case "QuAckqUack":
-					deQuacked += (char)69;
+					deQuacked.append((char)69);
 					break;
 				case "qUAckqUack":
-					deQuacked += (char)70;
+					deQuacked.append((char)70);
 					break;
 				case "QUAckqUack":
-					deQuacked += (char)71;
+					deQuacked.append((char)71);
 					break;
 				case "quaCkqUack":
-					deQuacked += (char)72;
+					deQuacked.append((char)72);
 					break;
 				case "QuaCkqUack":
-					deQuacked += (char)73;
+					deQuacked.append((char)73);
 					break;
 				case "qUaCkqUack":
-					deQuacked += (char)74;
+					deQuacked.append((char)74);
 					break;
 				case "QUaCkqUack":
-					deQuacked += (char)75;
+					deQuacked.append((char)75);
 					break;
 				case "quACkqUack":
-					deQuacked += (char)76;
+					deQuacked.append((char)76);
 					break;
 				case "QuACkqUack":
-					deQuacked += (char)77;
+					deQuacked.append((char)77);
 					break;
 				case "qUACkqUack":
-					deQuacked += (char)78;
+					deQuacked.append((char)78);
 					break;
 				case "QUACkqUack":
-					deQuacked += (char)79;
+					deQuacked.append((char)79);
 					break;
 				case "quacKqUack":
-					deQuacked += (char)80;
+					deQuacked.append((char)80);
 					break;
 				case "QuacKqUack":
-					deQuacked += (char)81;
+					deQuacked.append((char)81);
 					break;
 				case "qUacKqUack":
-					deQuacked += (char)82;
+					deQuacked.append((char)82);
 					break;
 				case "QUacKqUack":
-					deQuacked += (char)83;
+					deQuacked.append((char)83);
 					break;
 				case "quAcKqUack":
-					deQuacked += (char)84;
+					deQuacked.append((char)84);
 					break;
 				case "QuAcKqUack":
-					deQuacked += (char)85;
+					deQuacked.append((char)85);
 					break;
 				case "qUAcKqUack":
-					deQuacked += (char)86;
+					deQuacked.append((char)86);
 					break;
 				case "QUAcKqUack":
-					deQuacked += (char)87;
+					deQuacked.append((char)87);
 					break;
 				case "quaCKqUack":
-					deQuacked += (char)88;
+					deQuacked.append((char)88);
 					break;
 				case "QuaCKqUack":
-					deQuacked += (char)89;
+					deQuacked.append((char)89);
 					break;
 				case "qUaCKqUack":
-					deQuacked += (char)90;
+					deQuacked.append((char)90);
 					break;
 				case "QUaCKqUack":
-					deQuacked += (char)91;
+					deQuacked.append((char)91);
 					break;
 				case "quACKqUack":
-					deQuacked += (char)92;
+					deQuacked.append((char)92);
 					break;
 				case "QuACKqUack":
-					deQuacked += (char)93;
+					deQuacked.append((char)93);
 					break;
 				case "qUACKqUack":
-					deQuacked += (char)94;
+					deQuacked.append((char)94);
 					break;
 				case "QUACKqUack":
-					deQuacked += (char)95;
+					deQuacked.append((char)95);
 					break;
 				case "quackQUack":
-					deQuacked += (char)96;
+					deQuacked.append((char)96);
 					break;
 				case "QuackQUack":
-					deQuacked += (char)97;
+					deQuacked.append((char)97);
 					break;
 				case "qUackQUack":
-					deQuacked += (char)98;
+					deQuacked.append((char)98);
 					break;
 				case "QUackQUack":
-					deQuacked += (char)99;
+					deQuacked.append((char)99);
 					break;
 				case "quAckQUack":
-					deQuacked += (char)100;
+					deQuacked.append((char)100);
 					break;
 				case "QuAckQUack":
-					deQuacked += (char)101;
+					deQuacked.append((char)101);
 					break;
 				case "qUAckQUack":
-					deQuacked += (char)102;
+					deQuacked.append((char)102);
 					break;
 				case "QUAckQUack":
-					deQuacked += (char)103;
+					deQuacked.append((char)103);
 					break;
 				case "quaCkQUack":
-					deQuacked += (char)104;
+					deQuacked.append((char)104);
 					break;
 				case "QuaCkQUack":
-					deQuacked += (char)105;
+					deQuacked.append((char)105);
 					break;
 				case "qUaCkQUack":
-					deQuacked += (char)106;
+					deQuacked.append((char)106);
 					break;
 				case "QUaCkQUack":
-					deQuacked += (char)107;
+					deQuacked.append((char)107);
 					break;
 				case "quACkQUack":
-					deQuacked += (char)108;
+					deQuacked.append((char)108);
 					break;
 				case "QuACkQUack":
-					deQuacked += (char)109;
+					deQuacked.append((char)109);
 					break;
 				case "qUACkQUack":
-					deQuacked += (char)110;
+					deQuacked.append((char)110);
 					break;
 				case "QUACkQUack":
-					deQuacked += (char)111;
+					deQuacked.append((char)111);
 					break;
 				case "quacKQUack":
-					deQuacked += (char)112;
+					deQuacked.append((char)112);
 					break;
 				case "QuacKQUack":
-					deQuacked += (char)113;
+					deQuacked.append((char)113);
 					break;
 				case "qUacKQUack":
-					deQuacked += (char)114;
+					deQuacked.append((char)114);
 					break;
 				case "QUacKQUack":
-					deQuacked += (char)115;
+					deQuacked.append((char)115);
 					break;
 				case "quAcKQUack":
-					deQuacked += (char)116;
+					deQuacked.append((char)116);
 					break;
 				case "QuAcKQUack":
-					deQuacked += (char)117;
+					deQuacked.append((char)117);
 					break;
 				case "qUAcKQUack":
-					deQuacked += (char)118;
+					deQuacked.append((char)118);
 					break;
 				case "QUAcKQUack":
-					deQuacked += (char)119;
+					deQuacked.append((char)119);
 					break;
 				case "quaCKQUack":
-					deQuacked += (char)120;
+					deQuacked.append((char)120);
 					break;
 				case "QuaCKQUack":
-					deQuacked += (char)121;
+					deQuacked.append((char)121);
 					break;
 				case "qUaCKQUack":
-					deQuacked += (char)122;
+					deQuacked.append((char)122);
 					break;
 				case "QUaCKQUack":
-					deQuacked += (char)123;
+					deQuacked.append((char)123);
 					break;
 				case "quACKQUack":
-					deQuacked += (char)124;
+					deQuacked.append((char)124);
 					break;
 				case "QuACKQUack":
-					deQuacked += (char)125;
+					deQuacked.append((char)125);
 					break;
 				case "qUACKQUack":
-					deQuacked += (char)126;
+					deQuacked.append((char)126);
 					break;
 				case "QUACKQUack":
-					deQuacked += (char)127;
+					deQuacked.append((char)127);
 					break;
 			}
 		}
-		return deQuacked;
+		return deQuacked.toString();
 	}
 	// End Quack
 	
