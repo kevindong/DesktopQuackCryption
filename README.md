@@ -1,14 +1,11 @@
 # QuackCryption
 
-## Changelog (v1.0.0 to v1.1.0)
-An update of [QuackCryption v1.0.0](https://github.com/Meegul304/DesktopQuackCryption/releases/tag/v1.0.0). The changes are as follows:
+## Changelog (v1.1.0 to v1.2.0)
+An update of [QuackCryption v1.1.0](https://github.com/kevindong/QuackCryption/releases/tag/v1.1.0). The changes are as follows:
 
-* Consolidated the original 6 source files into one file
-* Removed dependency on the Apache Commons Codec
-* Header (which contains the filename) for files is now dynamically sized
-* (Slightly) optimized it; file encryption/decryption is still horribly slow and is still O(n^2)
+* File quackcryption/dequackcryption is now dramatically faster
 
-Strings are compatible with v1.0.0. File encryption/decryption is not compatible. 
+This release is fully backwards compatible with v1.1.0.
 
 ## Description
 QuackCryption is a novel approach to data structures, app development, and encryption by four, 2nd-semester Purdue University computer science majors. In essence, either text or a file is inputted (along with maybe a passphrase of the user's choosing), the text is encrypted using 128-bit AES (in CBC mode), and then that text is then converted into 'Quack' code. The data encrypted can be decrypted back to its original form, bit-for-bit. This software is open source.
